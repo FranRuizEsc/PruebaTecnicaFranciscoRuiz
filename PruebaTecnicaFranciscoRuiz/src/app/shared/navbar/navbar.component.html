@@ -5,7 +5,10 @@
       <input #search class="form-control me-2" type="text" placeholder="Search" aria-label="Search"
         (keyup)="searchSrv.searchInputLetter(search)"
         (keyup.enter)="searchSrv.searchInputClickAction(search)">
-      <button class="btn btn-outline-success" type="button" (Click)="searchSrv.searchInputClickAction(search)">Search</button>
+      <!-- <button class="btn btn-outline-success" type="button" (Click)="searchSrv.searchInputClickAction(search)">Search</button> -->
+      <a class="" (click)="searchSrv.searchInputClickAction(search)">
+        <mat-icon  icon="search" aria-hidden="true" class="text-white cursor-pointer"></mat-icon>
+      </a>
     </form>
   </div>
 </nav>

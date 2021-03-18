@@ -18,7 +18,7 @@ export class SearcherService {
   //Busca segun se vaya introduciondo letra a letra
   public searchInputLetter(letter: HTMLInputElement): void{
     console.info("Estoy en metodo");
-    console.info(letter);
+    console.info(letter.value);
     this.searchLetter.next(letter.value);
   }
 
@@ -26,7 +26,7 @@ export class SearcherService {
   public searchInputClickAction(word: HTMLInputElement): void{
     console.info("Estoy en metodo action");
     if (this.actionsActive){
-      console.info(word);
+      console.info(word.value);
       this.searchClickAction.next(word.value);
 
     }

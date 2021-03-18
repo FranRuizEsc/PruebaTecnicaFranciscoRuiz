@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.searchSrv.searchClickAction.subscribe( (resp: any) => {
-      this.router.navigate(['/photo'], { queryParams : { query: resp}});
+      this.router.navigate(['/photos'], { queryParams : { query: resp}});
     })
   }
 
