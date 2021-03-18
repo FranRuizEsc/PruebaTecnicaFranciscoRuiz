@@ -15,11 +15,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'photos',
+        redirectTo: 'photo',
         pathMatch: 'full'
       },
       {
-        path: 'photos',
+        path: 'photo',
         loadChildren: () => import('./photos/photos.module').then(m => m.PhotosModule)
       },
      /*  {

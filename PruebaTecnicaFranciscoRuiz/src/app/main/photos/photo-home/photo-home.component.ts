@@ -36,7 +36,7 @@ export class PhotoHomeComponent implements OnInit {
     const newQuery = this.route.snapshot.queryParamMap.get('query');
     this.searchModel.query = newQuery ? newQuery : '';
 
-    this.subs = this.searcherSrv.searchLetter.pipe(debounceTime(1000),
+    this.subs = this.searcherSrv.searchLetter.pipe(debounceTime(200),
       distinctUntilChanged()
     ).subscribe(value => {
       this.searchModel.query = value;

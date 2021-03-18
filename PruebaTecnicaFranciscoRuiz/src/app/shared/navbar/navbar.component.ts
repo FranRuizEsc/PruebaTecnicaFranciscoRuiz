@@ -1,7 +1,7 @@
 import { SearcherService } from './../services/searcher.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -12,12 +12,19 @@ export class NavbarComponent implements OnInit {
 
 
   constructor( public searchSrv: SearcherService,
-              private router: Router) { }
+              private router: Router,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.searchSrv.searchClickAction.subscribe( (resp: any) => {
-      this.router.navigate(['/photos'], { queryParams : { query: resp}});
-    })
+    /* this.searchSrv.searchClickAction.subscribe( resp => {
+      this.router.navigate(['/photo'], {relativeTo: this.activatedRoute});
+    }) */
+  }
+
+  public pulseSearch(){
+    this.searchSrv.searchClickAction.subscribe( resp => {
+      this.router.navigate(['/photo'], {relativeTo: this.activatedRoute});
+    });
   }
 
 }
