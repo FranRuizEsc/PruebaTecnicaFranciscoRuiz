@@ -1,0 +1,12 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/photo']">iSearch</a>
+    <form class="d-flex">
+      <input #search class="form-control me-2" type="text" placeholder="Search..." aria-label="Search"
+        (keyup)="searchSrv.searchInputLetter(search)">
+
+      <button class="btn btn-outline-success" type="button"
+        (click)="searchSrv.searchInputLetter(search)">Search</button>
+    </form>
+  </div>
+</nav>
