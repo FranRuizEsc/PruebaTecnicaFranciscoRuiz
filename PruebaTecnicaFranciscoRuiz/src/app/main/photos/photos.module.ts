@@ -1,3 +1,4 @@
+import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -5,6 +6,8 @@ import { PhotosRoutingModule } from './photos-routing.module';
 import { PhotoHomeComponent } from './photo-home/photo-home.component';
 import { PhotoCardComponent } from './photo-card/photo-card.component';
 import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
+import { MatCardModule } from '@angular/material/card';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -15,12 +18,16 @@ import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
   ],
 
   exports:[
-    PhotoCardComponent
+    PhotoCardComponent,
+    PhotoDetailComponent
   ],
 
   imports: [
     CommonModule,
-    PhotosRoutingModule
+    PhotosRoutingModule,
+    MatIconModule,
+    MatCardModule,
+    FlexLayoutModule,
   ]
 })
 export class PhotosModule { }

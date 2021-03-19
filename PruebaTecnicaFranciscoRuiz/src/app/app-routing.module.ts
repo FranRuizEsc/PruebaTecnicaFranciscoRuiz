@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 
-export const routes: Routes = [
+const routes: Routes = [
   {
     path: '',
     redirectTo: 'main',
@@ -12,6 +12,7 @@ export const routes: Routes = [
     path: 'main',
     loadChildren: () => import('./main/main.module').then(m => m.MainModule)
   },
+  
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)

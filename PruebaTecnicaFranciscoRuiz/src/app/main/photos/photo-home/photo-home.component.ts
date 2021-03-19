@@ -3,7 +3,7 @@ import { SearcherService } from './../../../shared/services/searcher.service';
 import { PhotosService } from './../../../shared/services/photos.service';
 import { IPhotoModel } from './../../../shared/models/IPhotoModel';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
@@ -22,10 +22,12 @@ export class PhotoHomeComponent implements OnInit {
 
   constructor( private photoSrv: PhotosService,
               private searcherSrv: SearcherService,
-              private route: ActivatedRoute) { }
+              private activeteRoute: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.getQeuryWithoutRepaeat();
+    this.getPhotos();
   }
 
 
@@ -33,7 +35,7 @@ export class PhotoHomeComponent implements OnInit {
 //compara los valores introducidos y envia los resultados sin duplicados
   public getQeuryWithoutRepaeat(){
 
-    const newQuery = this.route.snapshot.queryParamMap.get('query');
+    const newQuery = this.activeteRoute.snapshot.queryParamMap.get('query');
     this.searchModel.query = newQuery ? newQuery : '';
 
     this.subs = this.searcherSrv.searchLetter.pipe(debounceTime(200),
@@ -55,6 +57,15 @@ export class PhotoHomeComponent implements OnInit {
       }
       this.listPhotos.push(...result);
     });
+  }
+
+  public onClickId(event){
+    console.info(event);
+    this.goDetail(event);
+  }
+
+  public goDetail(id: string){
+    this.router.navigate(['/main/photos/photo',id]);
   }
 
 
