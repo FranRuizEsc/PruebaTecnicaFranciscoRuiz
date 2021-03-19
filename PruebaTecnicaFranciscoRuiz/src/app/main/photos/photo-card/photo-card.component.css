@@ -1,0 +1,22 @@
+
+
+.container{
+  border-radius: 10px;
+  box-shadow: 0px 1px 10px;
+  margin: 3%;
+  cursor: pointer;
+}
+
+
+div#info-card{
+  background-color: rgba(0, 0, 0, 0.6);
+  visibility: hidden;
+
+}
+
+.container:hover div#info-card {
+  visibility: visible;
+
+}
+
+

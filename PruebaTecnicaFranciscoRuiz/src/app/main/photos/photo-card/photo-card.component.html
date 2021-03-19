@@ -11,13 +11,16 @@
 
 
 <mat-card >
-  <<a [routerLink]="['/main/photos', photo.id]" title="{{photo.description}}" class="m-auto w-100 ">
+  <mat-card-subtitle>
+    <p> {{ photo.user }}</p>
+  </mat-card-subtitle>
+  <a [routerLink]="['/main/photos', photo.id]" title="{{photo.description}}" class="m-auto w-100 ">
     <img src="{{photo.urls.regular}}" alt="Card image cap" class="w-100 photo-element">
   </a>
   <mat-card-content>
     <div class="row">
       <div class="col-sm">
-        {{ photo.description }}
+        {{ photo.location }}
       </div>
       <div class="col-sm ">
         <img src="./assets/images/thumb-up.png" alt="like">
@@ -28,11 +31,23 @@
 
 </mat-card>
 
-<!--  <div class="card bg-dark text-white">
-  <img src="{{ photo.urls.regular }}" class="card-img" alt="{{ photo.description }}">
-  <div class="card-img-overlay">
-    <mat-icon class="mat-18" >thumb_up_alt</mat-icon>
-    <p> {{ photo.likes }} </p>
+<!-- <mat-card class="container">
+
+  <div class="card bg-dark text-white">
+    <a [routerLink]="['/main/photos', photo.id]" title="{{photo.description}}" class="m-auto w-100 ">
+      <img src="{{ photo.urls.regular }}" class="card-img" alt="{{ photo.description }}">
+    </a>
+    <div class="card-img-overlay row" id="info-card">
+
+      <div class="col">
+        <button class="mat-18">thumb_up_alt</button>
+        <p> {{ photo.likes }} </p>
+      </div>
+      <div class="col">
+        <a href="{{photo.links.download}}?force=true'" title="Download"></a>
+        <mat-icon class="mat-18">file_download</mat-icon>
+      </div>
+    </div>
   </div>
-</div>
- -->
+
+</mat-card> -->

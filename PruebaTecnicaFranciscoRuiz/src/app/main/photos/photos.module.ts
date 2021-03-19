@@ -7,6 +7,7 @@ import { PhotoHomeComponent } from './photo-home/photo-home.component';
 import { PhotoCardComponent } from './photo-card/photo-card.component';
 import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
 import { MatCardModule } from '@angular/material/card';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MatCardModule } from '@angular/material/card';
     CommonModule,
     PhotosRoutingModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    FlexLayoutModule,
   ]
 })
 export class PhotosModule { }
