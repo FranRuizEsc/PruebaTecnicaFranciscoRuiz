@@ -4,8 +4,8 @@ import {PhotosModule} from './photos/photos.module';
 import {MainComponent} from './main.component';
 ;
 
-/* export const loadPhotosModule = () => PhotosModule;
- */
+export const loadPhotosModule = () => PhotosModule;
+
 /* export const loadUsersModule = () => UsersModule; */
 
 const routes: Routes = [
@@ -15,21 +15,15 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'photo',
+        redirectTo: 'photos',
         pathMatch: 'full'
       },
+
       {
-        path: 'photo',
+        path: 'photos',
         loadChildren: () => import('./photos/photos.module').then(m => m.PhotosModule)
       },
-     /*  {
-        path: 'home',
-        loadChildren: () => import('../home/home.module').then(m => m.HomeModule)
-      }, */
-      /* {
-        path: 'user',
-        loadChildren: loadUsersModule
-      } */
+     
     ]
   }
 ];

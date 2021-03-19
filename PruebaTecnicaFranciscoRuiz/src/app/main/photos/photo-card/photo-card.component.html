@@ -1,6 +1,38 @@
-<div class="card" style="width: 18rem;">
-  <img src="{{photo.urls.regular}}" class="card-img-top" alt="Tittle">
+<!-- <div class="card" style="width: 18rem;">
+  <a (click)="onClickId($event)" title="{{ photo.description }}">
+    <img src="{{ photo.urls.regular }}" class="card-img-top" alt="Image" >
+  </a>
   <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <div class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+      content.</div>
   </div>
 </div>
+ -->
+
+
+<mat-card >
+  <<a [routerLink]="['/main/photos', photo.id]" title="{{photo.description}}" class="m-auto w-100 ">
+    <img src="{{photo.urls.regular}}" alt="Card image cap" class="w-100 photo-element">
+  </a>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-sm">
+        {{ photo.description }}
+      </div>
+      <div class="col-sm ">
+        <img src="./assets/images/thumb-up.png" alt="like">
+        <p> {{ photo.likes }}</p>
+      </div>
+    </div>
+  </mat-card-content>
+
+</mat-card>
+
+<!--  <div class="card bg-dark text-white">
+  <img src="{{ photo.urls.regular }}" class="card-img" alt="{{ photo.description }}">
+  <div class="card-img-overlay">
+    <mat-icon class="mat-18" >thumb_up_alt</mat-icon>
+    <p> {{ photo.likes }} </p>
+  </div>
+</div>
+ -->

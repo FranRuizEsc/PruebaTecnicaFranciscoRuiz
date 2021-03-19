@@ -1,12 +1,15 @@
 
-
-
-import { AppRoutingModuole } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppComponent } from './app.component';
+
+//Principal Routes
+import { AppRoutingModuole } from './app-routing.module';
+
+//Interceptor Auth send request to API
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/services/auth.interceptor';
 ;
@@ -20,7 +23,8 @@ import { AuthInterceptor } from './shared/services/auth.interceptor';
     BrowserModule,
     AppRoutingModuole,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
 
   ],
   providers: [    {

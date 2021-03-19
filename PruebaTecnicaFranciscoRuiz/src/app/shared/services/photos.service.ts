@@ -20,13 +20,11 @@ export class PhotosService {
       .append('page', String(page))
       .append('per_page', String(perPage))
       .append('order_by', orderBy);
-    return this.httpClient.get<IPhotoModel[]>(environment.apiUrl + '/photos', {params: params}).pipe(
-      // tap(source => console.log(source))
-    );
+    return this.httpClient.get<IPhotoModel[]>(environment.apiUrl + '/photos', {params: params}).pipe();
   }
 
   public getPhotoForId(id: string): Observable<IPhotoModel>{
-    return this.httpClient.get<IPhotoModel>(environment.apiUrl + '/photos'+ id).pipe(tap());
+    return this.httpClient.get<IPhotoModel>(environment.apiUrl + '/photos/' + id).pipe();
   }
 
 
