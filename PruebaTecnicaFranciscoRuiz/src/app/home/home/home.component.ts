@@ -9,13 +9,10 @@ import { SearcherService } from 'src/app/shared/services/searcher.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor( public searchSrv: SearcherService,
-              private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-    this.searchSrv.searchClickAction.subscribe( (resp: any) => {
-      this.router.navigate(['../', "photos"], { queryParams : { query: resp}});
-    })
+
   }
 
 }

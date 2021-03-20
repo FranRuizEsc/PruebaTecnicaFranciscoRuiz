@@ -1,9 +1,29 @@
-.image img {
-  width: 100%;
-  height: auto;
+
+img{
+  height: 600px;
+  width: auto;
+  padding: 2px;
+
 }
 
-.card{
+.user-avatar{
+  float:left;
+  width: 30px;
   height: auto;
-  width: 100%;
+  margin-left: 1%;
+  padding: 2px;
 }
+
+.img-like{
+  height: 30px;
+  width: auto;
+}
+
+.btn{
+  margin-left: 30%;
+  margin-bottom: 2%;
+}
+
+/* .cont-img-like{
+  margin-right: 3px;
+} */

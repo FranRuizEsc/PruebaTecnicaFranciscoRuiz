@@ -1,4 +1,12 @@
+*{
+  box-sizing: border-box;
+}
 
+mat-card{
+margin-top: 3%;
+margin: 4%;
+border: black;
+}
 
 .container{
   border-radius: 10px;
@@ -7,12 +15,20 @@
   cursor: pointer;
 }
 
-
-div#info-card{
-  background-color: rgba(0, 0, 0, 0.6);
-  visibility: hidden;
-
+.container-avatar{
+ padding: 1%;
 }
+.image-avatar{
+  float:left;
+  width: 30px;
+  height: auto;
+  margin-left: 1%;
+}
+
+.user-name{
+  padding-left: 2%;
+}
+
 
 .container:hover div#info-card {
   visibility: visible;

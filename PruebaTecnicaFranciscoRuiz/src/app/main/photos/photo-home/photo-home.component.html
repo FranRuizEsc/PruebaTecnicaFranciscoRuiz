@@ -1,13 +1,14 @@
-<div fxLayout="row wrap"
-    fxLayout.xs="column"
-    fxLayoutAlign="center"
-    fxLayoutGap="20px">
+<div class="container">
+  <div fxLayout="row wrap" fxLayout.s="column" fxLayoutAlign="center">
 
-  <div fxFlex="15"
-    fxFlex.lg="20"
-    fxFlex.sm="30"
-    *ngFor="let photo of listPhotos ">
-    <app-photo-card class="h-100  w-100" [photo]="photo"></app-photo-card>
+    <div fxFlex="20" fxFlex.lg="20" fxFlex.sm="30" fxflex.s="50" fxFlex.xs="100" *ngFor="let photo of listPhotos ">
+      <app-photo-card class="h-100 w-100" [photo]="photo"></app-photo-card>
+    </div>
   </div>
 
+  <div class="d-grid gap-2">
+    <button type="button" (click)="loadMoreImages()" class="btn btn-dark" fxLayout="row" fxLayoutAlign="center">
+      More...</button>
+
+  </div>
 </div>

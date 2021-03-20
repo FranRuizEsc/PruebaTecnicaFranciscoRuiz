@@ -15,7 +15,7 @@ export class PhotoDetailComponent implements OnInit {
   photo: Array<object> = [];
 
   constructor(private actRoute: ActivatedRoute,
-    private photoSrv: PhotosService) {
+              private photoSrv: PhotosService) {
 
   }
 

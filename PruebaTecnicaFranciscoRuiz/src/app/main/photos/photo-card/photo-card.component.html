@@ -1,18 +1,17 @@
-<!-- <div class="card" style="width: 18rem;">
-  <a (click)="onClickId($event)" title="{{ photo.description }}">
-    <img src="{{ photo.urls.regular }}" class="card-img-top" alt="Image" >
-  </a>
-  <div class="card-body">
-    <div class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-      content.</div>
-  </div>
-</div>
- -->
-
-
-<mat-card >
+<mat-card>
   <mat-card-subtitle>
-    <p> {{ photo.user }}</p>
+    <!-- <div class="container-avatar" id="photo-user">
+      <div class="image-avatar">
+        <img src="{{ photo.user.profile_image.small }}" alt="User photo" class="rounded-circle">
+      </div>
+      <div class="user-name">
+        <p> {{ photo.user.username }}</p>
+      </div>
+    </div> -->
+    <h6>
+      <img src="{{ photo.user.profile_image.small }}" alt="User photo" class="rounded-circle">
+      {{ photo.user.username }}
+    </h6>
   </mat-card-subtitle>
   <a [routerLink]="['/main/photos', photo.id]" title="{{photo.description}}" class="m-auto w-100 ">
     <img src="{{photo.urls.regular}}" alt="Card image cap" class="w-100 photo-element">

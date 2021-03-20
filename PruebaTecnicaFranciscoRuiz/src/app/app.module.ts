@@ -12,6 +12,7 @@ import { AppRoutingModuole } from './app-routing.module';
 //Interceptor Auth send request to API
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/services/auth.interceptor';
+import { MatTabsModule } from '@angular/material';
 ;
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AuthInterceptor } from './shared/services/auth.interceptor';
     AppRoutingModuole,
     SharedModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTabsModule
 
   ],
   providers: [    {

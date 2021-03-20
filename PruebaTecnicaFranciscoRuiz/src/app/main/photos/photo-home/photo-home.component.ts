@@ -52,10 +52,11 @@ export class PhotoHomeComponent implements OnInit {
     this.photoSrv.searchAllPhotos(this.searchModel) : this.photoSrv.getListAllPhotos(this.searchModel.page);
 
     this.observable.subscribe( (result: any) =>{
-      if(this.searchModel.page == 1){
+      if(this.searchModel.page === 1){
         this.listPhotos = result;
+      } else{
+        this.listPhotos.push(...result);
       }
-      this.listPhotos.push(...result);
     });
   }
 
@@ -68,5 +69,10 @@ export class PhotoHomeComponent implements OnInit {
     this.router.navigate(['/main/photos/photo',id]);
   }
 
+
+  public loadMoreImages(){
+    this.searchModel.page++;
+    this.getPhotos();
+  }
 
 }
