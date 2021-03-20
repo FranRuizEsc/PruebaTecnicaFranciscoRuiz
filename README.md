@@ -3,8 +3,10 @@ Web application made in angular that consists of an image search engine using th
 
 
 ### Pre-requisitos 📋
+
 *[Node](https://nodejs.org/en/):    v12.16.2
          Download https://nodejs.org/en/
+         
 *[Angular](https://angular.io): v8.3.29
          Installation: npm install -g @angualr/cli@8.3.29     
          
