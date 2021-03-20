@@ -1,3 +1,5 @@
+
+//Unplash user data model
 export interface IUserModel {
 
   'id': string;

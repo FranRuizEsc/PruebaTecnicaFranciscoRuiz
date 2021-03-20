@@ -1,9 +1,39 @@
-.image img {
+
+img{
+  object-fit: contain;
+  max-height: 100%;
   width: 100%;
-  height: auto;
+  padding: 2px;
+  max-width: 50%;
+  cursor:zoom-in;
 }
 
-.card{
+.user-avatar{
+  float:left;
+  width: 30px;
   height: auto;
-  width: 100%;
+  margin-left: 1%;
+  padding: 2px;
 }
+
+.img-like{
+  height: 30px;
+  width: auto;
+}
+
+.btn{
+  margin-left: 30%;
+  margin-bottom: 2%;
+}
+
+mat-tab-group{
+  /* margin: 3%; */
+  padding: 4%;
+  border: solid 1px black;
+  border-radius: 15px;
+}
+
+.container{
+  padding-bottom: 5%;
+}
+

@@ -9,6 +9,7 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor() {
   }
 
+  //Create the authorization to be able to make the requests against the api of Unsplash.
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>>{
     const authReq = request.clone({
       headers: new HttpHeaders({

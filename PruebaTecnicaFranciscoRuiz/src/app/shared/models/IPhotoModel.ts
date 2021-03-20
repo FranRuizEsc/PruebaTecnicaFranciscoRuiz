@@ -1,7 +1,7 @@
 import { ICollectionModel } from './ICollectionModel';
 import { IUserModel } from './IUserModel';
 
-
+//Unsplash data model photo
 export interface IPhotoModel {
   'id': string;
   'created_at': Date;

@@ -11,20 +11,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
 
-  constructor( public searchSrv: SearcherService,
-              private router: Router,
-              private activatedRoute: ActivatedRoute) { }
+  constructor( public searchSrv: SearcherService) { }
 
   ngOnInit() {
-    /* this.searchSrv.searchClickAction.subscribe( resp => {
-      this.router.navigate(['/photo'], {relativeTo: this.activatedRoute});
-    }) */
+
   }
 
-  public pulseSearch(){
-    this.searchSrv.searchClickAction.subscribe( resp => {
-      this.router.navigate(['/photo'], {relativeTo: this.activatedRoute});
-    });
-  }
+
 
 }
