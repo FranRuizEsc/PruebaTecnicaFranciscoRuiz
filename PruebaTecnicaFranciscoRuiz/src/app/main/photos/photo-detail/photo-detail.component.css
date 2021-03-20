@@ -1,9 +1,11 @@
 
 img{
-  height: 600px;
-  width: auto;
+  object-fit: contain;
+  max-height: 100%;
+  width: 100%;
   padding: 2px;
-
+  max-width: 50%;
+  cursor:zoom-in;
 }
 
 .user-avatar{
@@ -24,6 +26,14 @@ img{
   margin-bottom: 2%;
 }
 
-/* .cont-img-like{
-  margin-right: 3px;
-} */
+mat-tab-group{
+  /* margin: 3%; */
+  padding: 4%;
+  border: solid 1px black;
+  border-radius: 15px;
+}
+
+.container{
+  padding-bottom: 5%;
+}
+

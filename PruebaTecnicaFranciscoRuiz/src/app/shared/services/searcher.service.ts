@@ -6,12 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class SearcherService {
 
-  //Subject devuelve el mismo valor a los distintos observables
+  //Subject returns the same value to the different observables
   searchLetter: Subject<string> = new Subject<string>();
 
   constructor() { }
 
-  //Busca segun se vaya introduciondo letra a letra
+  //performs the search according to the entered value
   public searchInputLetter(letter: HTMLInputElement){
     this.searchLetter.next(letter.value);
   }

@@ -31,8 +31,8 @@ export class PhotoHomeComponent implements OnInit {
   }
 
 
-//debounceTime(1000) deja pasare un segundo para empezar a realizar la busqueda cuando se introducen las letras
-//compara los valores introducidos y envia los resultados sin duplicados
+//debounceTime(1000) let a second pass to start searching when the letters are entered
+//Compares the entered values and sends the results without duplicates
   public getQeuryWithoutRepaeat(){
 
     const newQuery = this.activeteRoute.snapshot.queryParamMap.get('query');
@@ -47,6 +47,7 @@ export class PhotoHomeComponent implements OnInit {
     });
   }
 
+  //Get the search result
   public getPhotos(){
     this.observable = (this.searchModel.query.length > 0)?
     this.photoSrv.searchAllPhotos(this.searchModel) : this.photoSrv.getListAllPhotos(this.searchModel.page);
@@ -69,7 +70,7 @@ export class PhotoHomeComponent implements OnInit {
     this.router.navigate(['/main/photos/photo',id]);
   }
 
-
+// Load more images on the page
   public loadMoreImages(){
     this.searchModel.page++;
     this.getPhotos();

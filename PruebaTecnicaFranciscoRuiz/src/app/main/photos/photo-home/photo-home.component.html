@@ -1,14 +1,16 @@
 <div class="container">
-  <div fxLayout="row wrap" fxLayout.s="column" fxLayoutAlign="center">
+  <div fxLayout="row wrap" fxLayout.s="column"  fxLayoutAlign="center">
 
-    <div fxFlex="20" fxFlex.lg="20" fxFlex.sm="30" fxflex.s="50" fxFlex.xs="100" *ngFor="let photo of listPhotos ">
+    <!-- show the photos gallery -->
+    <div fxFlex="20" fxFlex.lg="20" fxFlex.sm="30" fxflex.s="100" fxFlex.xs="100" *ngFor="let photo of listPhotos ">
       <app-photo-card class="h-100 w-100" [photo]="photo"></app-photo-card>
     </div>
   </div>
 
+  <!-- Button for load more imagen on the screen -->
   <div class="d-grid gap-2">
     <button type="button" (click)="loadMoreImages()" class="btn btn-dark" fxLayout="row" fxLayoutAlign="center">
       More...</button>
-
   </div>
 </div>
+<ngx-scrolltop backgroundColor="#474747" symbolColor="white" size="50"></ngx-scrolltop>

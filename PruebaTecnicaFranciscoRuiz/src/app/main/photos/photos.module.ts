@@ -9,6 +9,8 @@ import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatTabsModule } from '@angular/material';
+import { NgxScrollTopModule} from 'ngx-scrolltop';
+import { NgImageFullscreenViewModule } from 'ng-image-fullscreen-view';
 
 
 
@@ -30,7 +32,9 @@ import { MatTabsModule } from '@angular/material';
     MatIconModule,
     MatCardModule,
     FlexLayoutModule,
-    MatTabsModule
+    MatTabsModule,
+    NgxScrollTopModule,
+    NgImageFullscreenViewModule
   ]
 })
 export class PhotosModule { }

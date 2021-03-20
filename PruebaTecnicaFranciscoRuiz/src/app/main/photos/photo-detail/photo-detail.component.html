@@ -1,186 +1,145 @@
 <div class="contianer" *ngIf="photoModel" style="margin-top: 6%;">
 
-  <div class="row">
-
-
-
-    <!-- reservado para info de usuario -->
-    <!--  <div class="row" [routerLink]="['/user', photoModel.user.username]">
-          </div>
-        </div>
-    </mat-tab-group>
-    <!-- Imagen  -->
-    <!-- <mat-card class="card">
-        <mat-card-title>
-          <div class="contianer">
-            <!-- reservado para info de usuario -->
-    <!--   <div class="row" [routerLink]="['/user', photoModel.user.username]">
-            </div>
-          </div>
-        </mat-card-title> -->
-    <!--  imagen -->
-    <mat-card>
-      <mat-card-header>
+  <mat-card>
+    <mat-card-header>
+      <!-- Usser name and photo avatar -->
+      <p>
+        <img src="{{ photoModel.user.profile_image.small }}" alt="User photo" class="rounded-circle user-avatar">
+        {{ photoModel.user.username }}
+      </p>
+    </mat-card-header>
+    <!-- Selected photo  -->
+    <div class="cont-img-like" fxLayout="row wrap" fxLayoutAlign="center">
+      <img src="{{ photoModel.urls.regular }}" alt="Photo Detail" (click)="showLigthBox(0)">
+      <!-- pressing on the image shows it in full screen  and close -->
+      <ng-image-fullscreen-view [images]="arrayPhoto" [imageIndex]="selectedImageIndex" [show]="showFlag"
+        (close)="closeEventHandler()">
+      </ng-image-fullscreen-view>
+    </div>
+    <mat-card-footer>
+      <!-- Show likes of the photo -->
+      <div class="cont-img-like" fxLayout="row wrap" fxLayoutAlign="center">
         <p>
-          <img src="{{ photoModel.user.profile_image.small }}" alt="User photo" class="rounded-circle user-avatar">
-          {{ photoModel.user.username }}
+          <img src="./assets/images/thumb-up.png" alt="like" class="img-like">
+          {{ photoModel.likes }}
         </p>
-      </mat-card-header>
-      <mat-card-content>
-        <div class="image" fxLayoutAlign="center">
-          <img src="{{ photoModel.urls.regular }}" alt="Photo Detail" title="{{photoModel.description}}">
-
-        </div>
-      </mat-card-content>
-      <mat-card-footer>
-        <div class="cont-img-like" fxLayoutAlign="center">
-          <p>
-            <img src="./assets/images/thumb-up.png" alt="like" class="img-like">
-            {{ photoModel.likes }}
-          </p>
-          <button class="btn btn-outline-success" type="button" icon="search">
-            info
-          </button>
-        </div>
-        <!-- <div class="button-info" fxLayoutAlign="rigth">
-          <button class="btn btn-outline-success" type="button" icon="search">
-            <mat-icon class="mat-18">info</mat-icon>
-          </button>
-        </div> -->
-      </mat-card-footer>
-    </mat-card>
+      </div>
+    </mat-card-footer>
+  </mat-card>
 
 
-    <!-- TAB INFO DETAIL -->
-    <mat-tab-group>
-      <!--PHOTO INFO -->
-      <mat-tab label="Photo Info">
+  <!-- TAB INFO DETAIL -->
+  <mat-tab-group>
+    <!--PHOTO INFO -->
+    <mat-tab label="Photo Info">
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <th scope="col">Created:</th>
+            <td>{{photoModel.created_at}}</td>
+          </tr>
+          <tr>
+            <th scope="col">Updated:</th>
+            <td>{{photoModel.updated_at}}</td>
+          </tr>
+          <tr>
+            <th scope="col">Description:</th>
+            <td>{{photoModel.description}}</td>
+          </tr>
+          <tr>
+            <th scope="col">Height:</th>
+            <td>{{photoModel.height}} px</td>
+          </tr>
+          <tr>
+            <th scope="col">Width:</th>
+            <td>{{photoModel.width}} px</td>
+          </tr>
+          <tr>
+            <th scope="col">Likes:</th>
+            <td>{{photoModel.likes}}</td>
+          </tr>
+          <tr>
+            <th scope="col">Downloads:</th>
+            <td>{{photoModel.downloads}}</td>
+          </tr>
+          <tr>
+            <th scope="col">Tags</th>
+            <td>
+              <!-- Clicking on the links directs you to the images of the selected collection -->
+              <span *ngFor="let tag of photoModel.tags">
+                <a [routerLink]="['../']" [queryParams]="{query: tag.title}">{{tag.title}}</a>,
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+
+    <!-- CAMERE INFO -->
+    <mat-tab label="Camera Info">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th scope="col">Camera:</th>
+            <td>{{photoModel.exif.make}}</td>
+          </tr>
+          <tr>
+            <th scope="col">Model:</th>
+            <td>{{photoModel.exif.model}}</td>
+          </tr>
+          <tr>
+            <th scope="col">Aperture:</th>
+            <td>{{photoModel.exif.aperture}}</td>
+          </tr>
+          <tr>
+            <th scope="col">Exposure Time:</th>
+            <td>{{photoModel.exif.exposure_time}}</td>
+          </tr>
+          <tr>
+            <th scope="col">Focal Length:</th>
+            <td>{{photoModel.exif.focal_length}}</td>
+          </tr>
+          <tr>
+            <th scope="col">ISO:</th>
+            <td>{{photoModel.exif.iso}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="col-12 col-md-6 col-xl-4 px-0 px-md-2" *ngIf="photoModel.location && ( photoModel.location.country || photoModel.location.city
+          || photoModel.location.position.latitude || photoModel.location.position.longitude )">
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Location Info">
+      <div class="col-12 col-md-6 col-xl-4 px-0 px-md-2" *ngIf="photoModel.location && ( photoModel.location.country || photoModel.location.city
+          || photoModel.location.position.latitude || photoModel.location.position.longitude )">
 
         <table class="table">
           <tbody>
             <tr>
-              <th scope="col">Created:</th>
-              <td>{{photoModel.created_at}}</td>
+              <th scope="col">Country:</th>
+              <td>{{photoModel.location.country}}</td>
             </tr>
             <tr>
-              <th scope="col">Updated:</th>
-              <td>{{photoModel.updated_at}}</td>
+              <th scope="col">City:</th>
+              <td>{{photoModel.location.city}}</td>
             </tr>
             <tr>
-              <th scope="col">Description:</th>
-              <td>{{photoModel.description}}</td>
+              <th scope="col">Latitude:</th>
+              <td>{{photoModel.location.position.latitude}}</td>
             </tr>
             <tr>
-              <th scope="col">Height:</th>
-              <td>{{photoModel.height}} px</td>
-            </tr>
-            <tr>
-              <th scope="col">Width:</th>
-              <td>{{photoModel.width}} px</td>
-            </tr>
-            <tr>
-              <th scope="col">Likes:</th>
-              <td>{{photoModel.likes}}</td>
-            </tr>
-            <tr>
-              <th scope="col">Downloads:</th>
-              <td>{{photoModel.downloads}}</td>
-            </tr>
-            <tr>
-              <th scope="col">Tags</th>
-              <td>
-                <span *ngFor="let tag of photoModel.tags">
-                  <a [routerLink]="['/photos']" [queryParams]="{query: tag.title}">{{tag.title}}</a>,
-                </span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </mat-tab>
-
-      <!-- CAMERE INFO -->
-      <mat-tab label="Camera Info">
-        <table class="table">
-          <tbody>
-            <tr>
-              <th scope="col">Camera:</th>
-              <td>{{photoModel.exif.make}}</td>
-            </tr>
-            <tr>
-              <th scope="col">Model:</th>
-              <td>{{photoModel.exif.model}}</td>
-            </tr>
-            <tr>
-              <th scope="col">Aperture:</th>
-              <td>{{photoModel.exif.aperture}}</td>
-            </tr>
-            <tr>
-              <th scope="col">Exposure Time:</th>
-              <td>{{photoModel.exif.exposure_time}}</td>
-            </tr>
-            <tr>
-              <th scope="col">Focal Length:</th>
-              <td>{{photoModel.exif.focal_length}}</td>
-            </tr>
-            <tr>
-              <th scope="col">ISO:</th>
-              <td>{{photoModel.exif.iso}}</td>
+              <th scope="col">Longitude:</th>
+              <td>{{photoModel.location.position.longitude}}</td>
             </tr>
           </tbody>
         </table>
 
-        <div class="col-12 col-md-6 col-xl-4 px-0 px-md-2" *ngIf="photoModel.location && ( photoModel.location.country || photoModel.location.city
-          || photoModel.location.position.latitude || photoModel.location.position.longitude )">
-        </div>
-      </mat-tab>
-
-      <mat-tab label="Location Info">
-        <div class="col-12 col-md-6 col-xl-4 px-0 px-md-2" *ngIf="photoModel.location && ( photoModel.location.country || photoModel.location.city
-          || photoModel.location.position.latitude || photoModel.location.position.longitude )">
-
-          <table class="table">
-            <tbody>
-              <tr>
-                <th scope="col">Country:</th>
-                <td>{{photoModel.location.country}}</td>
-              </tr>
-              <tr>
-                <th scope="col">City:</th>
-                <td>{{photoModel.location.city}}</td>
-              </tr>
-              <tr>
-                <th scope="col">Latitude:</th>
-                <td>{{photoModel.location.position.latitude}}</td>
-              </tr>
-              <tr>
-                <th scope="col">Longitude:</th>
-                <td>{{photoModel.location.position.longitude}}</td>
-              </tr>
-            </tbody>
-          </table>
-
-        </div>
-
-
-      </mat-tab>
-
-    </mat-tab-group>
-
-  </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 </div>
 
-<!-- descargar -->
-<!-- <ul>
-              <li>
-                <p> {{ photoModel.links.download }}</p>
-              </li>
-              <li>
-                <p>expandir</p>
-              </li>
-            </ul>
 
-          </div>
-        </div>
-      </mat-card-footer>
-    </mat-card>
-  </div> -->

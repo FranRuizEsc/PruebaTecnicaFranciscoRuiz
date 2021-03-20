@@ -1,26 +1,18 @@
 <mat-card>
   <mat-card-subtitle>
-    <!-- <div class="container-avatar" id="photo-user">
-      <div class="image-avatar">
-        <img src="{{ photo.user.profile_image.small }}" alt="User photo" class="rounded-circle">
-      </div>
-      <div class="user-name">
-        <p> {{ photo.user.username }}</p>
-      </div>
-    </div> -->
+    <!-- User name and photo avatar -->
     <h6>
       <img src="{{ photo.user.profile_image.small }}" alt="User photo" class="rounded-circle">
       {{ photo.user.username }}
     </h6>
   </mat-card-subtitle>
-  <a [routerLink]="['/main/photos', photo.id]" title="{{photo.description}}" class="m-auto w-100 ">
+  <!-- pressing the image directs the route to the detail of the photo -->
+  <a [routerLink]="['/main/photos', photo.id]" title="{{photo.description}}" class="m-auto w-100" >
     <img src="{{photo.urls.regular}}" alt="Card image cap" class="w-100 photo-element">
   </a>
   <mat-card-content>
+    <!-- Show photos likes -->
     <div class="row">
-      <div class="col-sm">
-        {{ photo.location }}
-      </div>
       <div class="col-sm ">
         <img src="./assets/images/thumb-up.png" alt="like">
         <p> {{ photo.likes }}</p>
@@ -30,23 +22,3 @@
 
 </mat-card>
 
-<!-- <mat-card class="container">
-
-  <div class="card bg-dark text-white">
-    <a [routerLink]="['/main/photos', photo.id]" title="{{photo.description}}" class="m-auto w-100 ">
-      <img src="{{ photo.urls.regular }}" class="card-img" alt="{{ photo.description }}">
-    </a>
-    <div class="card-img-overlay row" id="info-card">
-
-      <div class="col">
-        <button class="mat-18">thumb_up_alt</button>
-        <p> {{ photo.likes }} </p>
-      </div>
-      <div class="col">
-        <a href="{{photo.links.download}}?force=true'" title="Download"></a>
-        <mat-icon class="mat-18">file_download</mat-icon>
-      </div>
-    </div>
-  </div>
-
-</mat-card> -->

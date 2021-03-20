@@ -1,4 +1,6 @@
 import { IUserModel } from './IUserModel';
+
+//Unplash data model collections
 export interface ICollectionModel {
 
   'id': number;
