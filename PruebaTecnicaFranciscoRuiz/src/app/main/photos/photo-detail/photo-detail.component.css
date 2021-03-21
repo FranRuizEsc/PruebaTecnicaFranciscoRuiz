@@ -1,0 +1,54 @@
+
+/* img{
+  object-fit: contain;
+  width: 100%;
+  padding: 2px;
+  max-width: 50%;
+  max-height: 100%;
+  cursor:zoom-in;
+} */
+
+mat-tab-group{
+  /* margin: 3%; */
+  margin-top: 3%;
+  padding: 4%;
+ /*  border: solid 1px black; */
+  border-radius: 15px;
+  background-color: white;
+}
+a{
+  color: white;
+
+}
+
+.user-avatar{
+  float:left;
+  width: 30px;
+  height: auto;
+  margin-left: 1%;
+  padding: 2px;
+}
+
+.img-like{
+  height: 30px;
+  width: auto;
+}
+
+.btn{
+  margin-left: 30%;
+  margin-bottom: 2%;
+}
+
+.container-fluid{
+  padding: 2%;
+  background-color: grey;
+}
+
+.img-ppal{
+ max-height: 30rem;
+}
+
+.badge{
+  padding: 1%;
+  margin: 0.5%;
+}

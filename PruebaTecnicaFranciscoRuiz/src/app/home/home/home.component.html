@@ -1,0 +1,7 @@
+<div class="input-group mb-3">
+  <input #search class="form-control me-2" type="text" placeholder="Search" aria-label="Search"
+    (keyup)="searchSrv.searchInputLetter(search)" (keyup.enter)="searchSrv.searchInputClickAction(search)">
+  <a class="" (click)="searchSrv.searchInputClickAction(search)">
+    <span class="material-icons"> search</span>
+  </a>
+</div>

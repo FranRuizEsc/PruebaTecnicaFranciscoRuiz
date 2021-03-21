@@ -1,0 +1,16 @@
+
+
+.container-fluid{
+  padding-top: 10%;
+  width: 100%;
+  background-color: grey;
+}
+
+.btn{
+  margin-top: 4%;
+  margin-bottom: 6%;
+}
+
+.grid-item{
+  width: 200px;
+}

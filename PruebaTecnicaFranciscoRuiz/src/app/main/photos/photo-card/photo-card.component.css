@@ -1,0 +1,38 @@
+*{
+  box-sizing: border-box;
+}
+
+mat-card{
+margin-top: 3%;
+margin: 4%;
+border: black;
+}
+
+.container{
+  border-radius: 10px;
+  box-shadow: 0px 1px 10px;
+  margin: 3%;
+  cursor: pointer;
+}
+
+.container-avatar{
+ padding: 1%;
+}
+.image-avatar{
+  float:left;
+  width: 30px;
+  height: auto;
+  margin-left: 1%;
+}
+
+.user-name{
+  padding-left: 2%;
+}
+
+
+.container:hover div#info-card {
+  visibility: visible;
+
+}
+
+
