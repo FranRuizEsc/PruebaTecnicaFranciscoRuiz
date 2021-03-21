@@ -9,8 +9,8 @@
         </p>
       </mat-card-header>
       <!-- Selected photo  -->
-      <div class="cont-img-like" fxLayout="row wrap" fxLayoutAlign="center">
-        <img src="{{ photoModel.urls.regular }}" alt="Photo Detail" (click)="showLigthBox(0)">
+      <div class="cont-img" fxLayout="row wrap" fxLayoutAlign="center">
+        <img src="{{ photoModel.urls.regular }}" alt="Photo Detail" (click)="showLigthBox(0)" class="img-ppal">
         <!-- pressing on the image shows it in full screen  and close -->
         <ng-image-fullscreen-view [images]="arrayPhoto" [imageIndex]="selectedImageIndex" [show]="showFlag"
           (close)="closeEventHandler()">
@@ -29,7 +29,7 @@
 
 
     <!-- TAB INFO DETAIL -->
-    <mat-tab-group>
+    <mat-tab-group >
       <!--PHOTO INFO -->
       <mat-tab label="Photo Info">
 
@@ -67,8 +67,8 @@
               <th scope="col">Tags</th>
               <td>
                 <!-- Clicking on the links directs you to the images of the selected collection -->
-                <span *ngFor="let tag of photoModel.tags">
-                  <a [routerLink]="['../']" [queryParams]="{query: tag.title}">{{tag.title}}</a>,
+                <span class="badge bg-secondary" *ngFor="let tag of photoModel.tags" >
+                  <a [routerLink]="['../']" [queryParams]="{query: tag.title}">{{tag.title}}</a>
                 </span>
               </td>
             </tr>
