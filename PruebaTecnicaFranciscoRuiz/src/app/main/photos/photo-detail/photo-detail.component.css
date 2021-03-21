@@ -1,11 +1,24 @@
 
-img{
+/* img{
   object-fit: contain;
   width: 100%;
   padding: 2px;
   max-width: 50%;
   max-height: 100%;
   cursor:zoom-in;
+} */
+
+mat-tab-group{
+  /* margin: 3%; */
+  margin-top: 3%;
+  padding: 4%;
+ /*  border: solid 1px black; */
+  border-radius: 15px;
+  background-color: white;
+}
+a{
+  color: white;
+
 }
 
 .user-avatar{
@@ -26,17 +39,16 @@ img{
   margin-bottom: 2%;
 }
 
-mat-tab-group{
-  /* margin: 3%; */
-  margin-top: 3%;
-  padding: 4%;
- /*  border: solid 1px black; */
-  border-radius: 15px;
-  background-color: white;
-}
-
 .container-fluid{
-  padding: 5%;
+  padding: 2%;
   background-color: grey;
 }
 
+.img-ppal{
+ max-height: 30rem;
+}
+
+.badge{
+  padding: 1%;
+  margin: 0.5%;
+}
