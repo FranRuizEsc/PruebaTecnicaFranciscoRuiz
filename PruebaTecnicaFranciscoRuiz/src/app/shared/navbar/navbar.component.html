@@ -1,13 +1,15 @@
 <nav class="navbar fixed-top navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" [routerLink]="['/main']">iSearch</a>
+    <a class="navbar-brand" [routerLink]="['/main']">
+      <img src="../assets/images/logoiSearch.png" alt="logo">
+    </a>
     <form class="d-flex">
       <input #search class="form-control me-4" type="text" placeholder="Search..." aria-label="Search"
-        (keyup)="searchSrv.searchInputLetter(search)"
-        (keypress.enter)="searchSrv.searchInputLetter(search)">
+        (keyup)="searchSrv.searchInputLetter(search)" (keypress.enter)="searchSrv.searchInputLetter(search)">
 
-      <button class="btn btn-outline-success" type="button"
-        (click)="searchSrv.searchInputLetter(search)" icon="search"><mat-icon class="mat-18">search</mat-icon></button>
+      <button class="btn btn btn-outline-secondary" type="button" (click)="searchSrv.searchInputLetter(search)" icon="search">
+        <mat-icon >search</mat-icon>
+      </button>
     </form>
   </div>
 </nav>

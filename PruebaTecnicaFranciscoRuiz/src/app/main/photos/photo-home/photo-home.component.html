@@ -1,6 +1,5 @@
-<div class="container">
+<div class="container-fluid">
   <div fxLayout="row wrap" fxLayout.s="column"  fxLayoutAlign="center">
-
     <!-- show the photos gallery -->
     <div fxFlex="20" fxFlex.lg="20" fxFlex.sm="30" fxflex.s="100" fxFlex.xs="100" *ngFor="let photo of listPhotos ">
       <app-photo-card class="h-100 w-100" [photo]="photo"></app-photo-card>
@@ -13,4 +12,4 @@
       More...</button>
   </div>
 </div>
-<ngx-scrolltop backgroundColor="#474747" symbolColor="white" size="50"></ngx-scrolltop>
+<ngx-scrolltop backgroundColor="black" symbolColor="white" size="50"></ngx-scrolltop>

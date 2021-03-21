@@ -1,10 +1,10 @@
 
 img{
   object-fit: contain;
-  max-height: 100%;
   width: 100%;
   padding: 2px;
   max-width: 50%;
+  max-height: 100%;
   cursor:zoom-in;
 }
 
@@ -28,12 +28,15 @@ img{
 
 mat-tab-group{
   /* margin: 3%; */
+  margin-top: 3%;
   padding: 4%;
-  border: solid 1px black;
+ /*  border: solid 1px black; */
   border-radius: 15px;
+  background-color: white;
 }
 
-.container{
-  padding-bottom: 5%;
+.container-fluid{
+  padding: 5%;
+  background-color: grey;
 }
 
